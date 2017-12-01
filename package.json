@@ -1,0 +1,35 @@
+{
+  "name": "mockajax",
+  "version": "1.0.0",
+  "description": "easy intercept and modify XHR or fetch, mock the response.",
+  "main": "dist/mockajax.min.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://panyx@wmd.git.wangsu.com:7990/scm/op/mockajax.git"
+  },
+  "keywords": [
+    "xhr",
+    "fetch",
+    "mock",
+    "intercept"
+  ],
+  "author": "angrytoro",
+  "license": "ISC",
+  "dependencies": {
+    "path-to-regexp": "^2.1.0",
+    "xhook": "^1.4.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.9.1"
+  }
+}
