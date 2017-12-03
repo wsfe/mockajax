@@ -5,7 +5,7 @@
   "main": "dist/mockajax.min.js",
   "module": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
     "dev": "webpack --watch",
     "build": "webpack"
   },
@@ -25,10 +25,17 @@
     "xhook": "^1.4.4"
   },
   "devDependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "karma": "^1.7.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^4.0.1",
     "webpack": "^3.9.1"
   }
 }
