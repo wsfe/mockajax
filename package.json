@@ -22,7 +22,6 @@
   "author": "angrytoro",
   "license": "ISC",
   "dependencies": {
-    "path-to-regexp": "^2.1.0",
     "xhook": "^1.4.4"
   },
   "devDependencies": {

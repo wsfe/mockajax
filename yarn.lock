@@ -2227,10 +2227,6 @@ path-key@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/path-key/download/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
 
-path-to-regexp@^2.1.0:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-2.1.0.tgz#7e30f9f5b134bd6a28ffc2e3ef1e47075ac5259b"
-
 path-type@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/path-type/download/path-type-2.0.0.tgz#f012ccb8415b7096fc2daa1054c3d72389594c73"
