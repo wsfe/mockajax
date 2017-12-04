@@ -1,10 +1,11 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'mockajax.min.js',
-    path: path.join(__dirname, '../lib/mockajax/1.0.0'),
+    path: path.join(__dirname, 'dist'),
     library: 'MockAjax',
     libraryTarget: "umd"
   },
@@ -16,5 +17,8 @@ module.exports = {
         loader: "babel-loader"
       }
     ]
-  }
+  },
+  plugins: [
+    new UglifyJsPlugin()
+  ]
 }

@@ -55,7 +55,8 @@ function findRule(pathname, method) {
  */
 function mock(request, rule , a) {
   request.query = getQuery(a.search)
-  request.params = getParams(rule, a.pathname);
+  request.params = getParams(rule, a.pathname)
+  request.body = request.body? JSON.parse(request.body): request.body
   return rule.response(request)
 }
 
@@ -72,7 +73,7 @@ function getQuery(query = '') {
     queryMatches.forEach((item) => {
       let kv = item.split('='),
         key = kv[0],
-        value = kv.splice(1).join('=')
+        value = decodeURIComponent(kv[1])
       queryObj[key] = value
     })
     return queryObj
