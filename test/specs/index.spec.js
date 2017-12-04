@@ -1,4 +1,4 @@
-const MockAjax = require('../dist/mockajax.min.js')
+const MockAjax = require('@/index')
 
 beforeEach(function() {
   MockAjax.mock([
