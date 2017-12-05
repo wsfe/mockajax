@@ -101,7 +101,7 @@ function getParams(rule, pathname) {
 xhook.before((request, cb) => {
   let a = document.createElement('a')
   a.href = request.url
-  let pathname = a.pathname.replace(basePathRegExp),
+  let pathname = a.pathname.replace(basePathRegExp, ''),
     rule = findRule(pathname, request.method)
   if (rule) {
     let mockData = JSON.stringify(mock(request, rule , a))
