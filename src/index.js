@@ -1,4 +1,5 @@
 import xhook from 'xhook'
+import fetchHook from './fetch'
 
 let rules = []
 let basePathRegExp = null
@@ -98,25 +99,6 @@ function getParams(rule, pathname) {
   return {}
 }
 
-xhook.before((request, cb) => {
-  let a = document.createElement('a')
-  a.href = request.url
-  let pathname = a.pathname.replace(basePathRegExp, ''),
-    rule = findRule(pathname, request.method)
-  if (rule) {
-    let mockData = JSON.stringify(mock(request, rule , a))
-    cb({
-      headers: request.headers,
-      status: 200,
-      statusText: 'OK',
-      text: mockData,
-      data: mockData
-    })
-  } else {
-    cb()
-  }
-})
-
 /**
  * 将规则加入缓存
  * @param {*} rule 
@@ -133,9 +115,53 @@ function appendToRule(rule) {
   }
 }
 
+/**
+ * 设置XMLHttpRequest请求的模拟
+ */
+xhook.before((request, cb) => {
+  let a = document.createElement('a')
+  a.href = request.url
+  let pathname = a.pathname.replace(basePathRegExp, ''),
+    rule = findRule(pathname, request.method)
+  if (rule) {
+    let mockData = mock(request, rule , a)
+    cb({
+      request: request,
+      headers: request.headers,
+      status: 200,
+      statusText: 'OK',
+      text: JSON.stringify(mockData),
+      data: mockData
+    })
+  } else {
+    cb()
+  }
+})
+
 module.exports = {
   setBasePath(basePath) {
     basePathRegExp = new RegExp(basePath)
+  },
+  openFetch() {
+    fetchHook(request => {
+      let a = document.createElement('a')
+      a.href = request.url
+      let pathname = a.pathname.replace(basePathRegExp, ''),
+        rule = findRule(pathname, request.method)
+      if (rule) {
+        let mockData = mock(request, rule , a)
+        return {
+          request: request,
+          headers: request.headers,
+          status: 200,
+          statusText: 'OK',
+          text: JSON.stringify(mockData),
+          data: mockData
+        }
+      } else {
+        return false
+      }
+    })
   },
   mock(config) {
     let type = getType(config)

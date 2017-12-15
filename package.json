@@ -1,6 +1,6 @@
 {
   "name": "mockajax",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "easy intercept and modify XHR or fetch, mock the response.",
   "main": "dist/mockajax.min.js",
   "module": "src/index.js",
@@ -8,7 +8,7 @@
     "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
     "coveralls": "cat ./test/.coverage/lcov.info | coveralls",
     "dev": "webpack --watch",
-    "build": "webpack"
+    "prepublish": "webpack"
   },
   "repository": {
     "type": "git",

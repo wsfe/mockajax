@@ -5,6 +5,10 @@ const axiosInstance = axios.create({
   baseURL: 'http://wangsu.co/api/v1'
 })
 
+before(() => {
+  MockAjax.openFetch();
+})
+
 MockAjax.setBasePath('/api/v1')
 
 MockAjax.mock({
@@ -128,6 +132,40 @@ describe('restful api', () => {
     it('should return id=0000', (done) => {
       axios.delete('/user/0000').then((response) => {
         assert.equal(response.data.id, '0000')
+        done()
+      }).catch(error => {
+        done(error)
+      })
+    })
+  })
+})
+
+describe('fetch', () => {
+  describe('get method', () => {
+    it('shoud return user id, name, age, country', (done) => {
+      fetch('/user/123/freefish?age=20&country=china').then(response => {
+        assert.equal(response.data.id, 123)
+        assert.equal(response.data.name, 'freefish')
+        assert.equal(response.data.age, 20)
+        assert.equal(response.data.country, 'china')
+        done()
+      }).catch(error => {
+        done(error)
+      })
+    })
+    it('shoud return user name, age, country', (done) => {
+      fetch('/user/freefish?age=20&country=china').then(response => {
+        assert.equal(response.data.name, 'freefish')
+        assert.equal(response.data.age, 20)
+        assert.equal(response.data.country, 'china')
+        done()
+      }).catch(error => {
+        done(error)
+      })
+    })
+    it('regex api', (done) => {
+      fetch('/help/phone?phone=0510-5555 5555').then(response => {
+        assert.equal(response.data.phone, '0510-5555 5555')
         done()
       }).catch(error => {
         done(error)
