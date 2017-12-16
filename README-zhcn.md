@@ -91,6 +91,17 @@ axios.post('/user', {
 ```
 MockAjax.setBasePath('/api/v1')
 ```
+## openFetch
+`void MockAjax.openFetch()`: 打开`fetch`请求的mock。`MockAjax`默认不支持`fetch`请求的mock。如果想要支持，需要调用这个函数。
+```
+MockAjax.openFetch()
+fetch('/user/123/freefish?age=20&country=china').then(response => {
+  assert.equal(response.data.id, 123)
+  assert.equal(response.data.name, 'freefish')
+  assert.equal(response.data.age, 20)
+  assert.equal(response.data.country, 'china')
+})
+```
 ## mock
 `void MockAjax.mock(/* Array|Object */ options)`设置mock规则，`options`可以是数组也可以是对象。
 **options**:

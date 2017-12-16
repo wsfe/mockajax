@@ -94,6 +94,17 @@ Such as: api's prefix is `https://github.com/api/v1`.
 ```
 MockAjax.setBasePath('/api/v1')
 ```
+## openFetch
+`void MockAjax.openFetch()`: the method make the fetch request to be able mock. MockAjax can not mock fetch request default. So If you want to make the fetch request to be able mock, you must invoke the method.
+```
+MockAjax.openFetch()
+fetch('/user/123/freefish?age=20&country=china').then(response => {
+  assert.equal(response.data.id, 123)
+  assert.equal(response.data.name, 'freefish')
+  assert.equal(response.data.age, 20)
+  assert.equal(response.data.country, 'china')
+})
+```
 ## mock
 `void MockAjax.mock(/* Array|Object */ options)`: the method is used to set mock rule, the argument options can be Object or Array.
 **options**:
