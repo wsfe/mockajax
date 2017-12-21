@@ -138,6 +138,19 @@ describe('restful api', () => {
       })
     })
   })
+
+  describe('async false', () => {
+    it('shoud return user id, name, age, country', (done) => {
+      let xhr = new XMLHttpRequest()
+      xhr.open('GET', '/user/123/freefish?age=20&country=china', false)
+      xhr.send(null)
+      let response = xhr.response
+      assert.equal(response.name, 'freefish')
+      assert.equal(response.age, 20)
+      assert.equal(response.country, 'china')
+      done()
+    })
+  })
 })
 
 describe('fetch', () => {

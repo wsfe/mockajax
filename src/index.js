@@ -1,4 +1,4 @@
-import xhook from 'xhook'
+import xhook from 'xhrhook'
 import fetchHook from './fetch'
 
 let rules = []

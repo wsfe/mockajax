@@ -2227,8 +2227,8 @@ is-glob@^2.0.0, is-glob@^2.0.1:
     is-extglob "^1.0.0"
 
 is-my-json-valid@^2.12.4:
-  version "2.16.1"
-  resolved "http://registry.npm.taobao.org/is-my-json-valid/download/is-my-json-valid-2.16.1.tgz#5a846777e2c2620d1e69104e5d3a03b1f6088f11"
+  version "2.17.1"
+  resolved "http://registry.npm.taobao.org/is-my-json-valid/download/is-my-json-valid-2.17.1.tgz#3da98914a70a22f0a8563ef1511a246c6fc55471"
   dependencies:
     generate-function "^2.0.0"
     generate-object-property "^1.1.0"
@@ -4072,8 +4072,8 @@ watchpack@^1.4.0:
     graceful-fs "^4.1.2"
 
 wd@^1.2.0:
-  version "1.4.1"
-  resolved "http://registry.npm.taobao.org/wd/download/wd-1.4.1.tgz#6b1ab39aab1728ee276c1a2b6d7321da68b16e8c"
+  version "1.5.0"
+  resolved "http://registry.npm.taobao.org/wd/download/wd-1.5.0.tgz#45c96a16ff9f8c0f9e7ca90f806a8b48bd0034d6"
   dependencies:
     archiver "1.3.0"
     async "2.0.1"
@@ -4185,9 +4185,9 @@ wtf-8@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/wtf-8/download/wtf-8-1.0.0.tgz#392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a"
 
-xhook@^1.4.4:
+xhrhook@^1.4.4:
   version "1.4.4"
-  resolved "http://registry.npm.taobao.org/xhook/download/xhook-1.4.4.tgz#875de9646aabad7b597876f573b7a082580ee3f0"
+  resolved "http://registry.npm.taobao.org/xhrhook/download/xhrhook-1.4.4.tgz#3028f5520d8f6d65b8717ba2f36bdbff9d8c399a"
   dependencies:
     testcafe-browser-provider-saucelabs "^1.3.0"
 

@@ -23,7 +23,7 @@
   "author": "angrytoro",
   "license": "ISC",
   "dependencies": {
-    "xhook": "^1.4.4"
+    "xhrhook": "^1.4.4"
   },
   "devDependencies": {
     "axios": "^0.17.1",
