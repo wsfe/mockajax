@@ -84,7 +84,7 @@ axios.post('/user', {
 ```
 
 # API介绍
-**MockAjax**提供2个API。
+**MockAjax**提供3个API。
 ## setBasePath
 `void MockAjax.setBasePath(/* String */ path)`设置基础路径。有时候接口前缀很长，我们不想在写数据模拟的时候重复的写同样的前缀，这个时候我们就可以使用这个接口。
 例如：接口前缀是`https://github.com/api/v1`

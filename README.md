@@ -87,7 +87,7 @@ axios.post('/user', {
 ```
 
 # API Methods
-**MockAjax** provide 2 API.
+**MockAjax** provide 3 API.
 ## setBasePath
 `void MockAjax.setBasePath(/* String */ path)`: the method is used to set base path. Sometimes api's prefix is too long, And we don't want to write the same prefix all the time. Now it provides the function what you need.
 Such as: api's prefix is `https://github.com/api/v1`.
