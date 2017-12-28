@@ -1,5 +1,5 @@
 /*!
- * Mockajax - v1.1.5 - https://github.com/angrytoro/mockajax 
+ * Mockajax - v1.1.6 - https://github.com/angrytoro/mockajax 
  * angrytoro <angrytoro@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -83,6 +83,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _xhrhook = __webpack_require__(1);
 
@@ -233,7 +237,7 @@ _xhrhook2.default.before(function (request, cb) {
   }
 });
 
-module.exports = {
+exports.default = {
   setBasePath: function setBasePath(basePath) {
     basePathRegExp = new RegExp(basePath);
   },

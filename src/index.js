@@ -138,7 +138,7 @@ xhook.before((request, cb) => {
   }
 })
 
-module.exports = {
+export default {
   setBasePath(basePath) {
     basePathRegExp = new RegExp(basePath)
   },
