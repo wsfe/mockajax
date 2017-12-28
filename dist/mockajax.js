@@ -1,5 +1,5 @@
 /*!
- * Mockajax - v1.1.4 - https://github.com/angrytoro/mockajax 
+ * Mockajax - v1.1.5 - https://github.com/angrytoro/mockajax 
  * angrytoro <angrytoro@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
