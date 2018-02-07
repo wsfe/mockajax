@@ -123,6 +123,7 @@ xhook.before((request, cb) => {
   a.href = request.url
   let pathname = a.pathname.replace(basePathRegExp, ''),
     rule = findRule(pathname, request.method)
+  a.pathname = pathname
   if (rule) {
     let mockData = mock(request, rule , a)
     cb({
@@ -148,6 +149,7 @@ export default {
       a.href = request.url
       let pathname = a.pathname.replace(basePathRegExp, ''),
         rule = findRule(pathname, request.method)
+      a.pathname = pathname
       if (rule) {
         let mockData = mock(request, rule , a)
         return {

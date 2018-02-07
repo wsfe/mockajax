@@ -1,5 +1,5 @@
 /*!
- * Mockajax - v1.1.6 - https://github.com/angrytoro/mockajax 
+ * Mockajax - v1.1.7 - https://github.com/angrytoro/mockajax 
  * angrytoro <angrytoro@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -222,6 +222,7 @@ _xhrhook2.default.before(function (request, cb) {
   a.href = request.url;
   var pathname = a.pathname.replace(basePathRegExp, ''),
       rule = findRule(pathname, request.method);
+  a.pathname = pathname;
   if (rule) {
     var mockData = mock(request, rule, a);
     cb({
@@ -247,6 +248,7 @@ exports.default = {
       a.href = request.url;
       var pathname = a.pathname.replace(basePathRegExp, ''),
           rule = findRule(pathname, request.method);
+      a.pathname = pathname;
       if (rule) {
         var mockData = mock(request, rule, a);
         return {
