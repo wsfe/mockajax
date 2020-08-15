@@ -154,7 +154,13 @@ function findRule(pathname, method) {
 function mock(request, rule, a) {
   request.query = getQuery(a.search);
   request.params = getParams(rule, a.pathname);
-  request.body = request.body ? JSON.parse(request.body) : request.body;
+  if (request.body) {
+    try {
+      request.body = JSON.parse(request.body);
+    } catch (e) {
+      request.body = getQuery(request.body);
+    }
+  }
   return rule.response(request);
 }
 
