@@ -1,5 +1,5 @@
 /*!
- * Mockajax - v1.1.7 - https://github.com/angrytoro/mockajax 
+ * Mockajax - v1.1.9 - https://github.com/angrytoro/mockajax 
  * angrytoro <angrytoro@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -158,7 +158,7 @@ function mock(request, rule, a) {
     try {
       request.body = JSON.parse(request.body);
     } catch (e) {
-      request.body = getQuery(request.body);
+      request.body = typeof request.body === 'string' ? getQuery(request.body) : request.body;
     }
   }
   return rule.response(request);

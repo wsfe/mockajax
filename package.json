@@ -1,6 +1,6 @@
 {
   "name": "mockajax",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "easy intercept and modify XHR or fetch, mock the response.",
   "main": "dist/mockajax.js",
   "module": "src/index.js",

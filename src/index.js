@@ -61,7 +61,7 @@ function mock(request, rule , a) {
     try {
       request.body = JSON.parse(request.body)
     } catch(e) {
-      request.body = getQuery(request.body)
+      request.body = typeof request.body === 'string' ? getQuery(request.body) : request.body
     }
   }
   return rule.response(request)
