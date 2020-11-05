@@ -105,6 +105,10 @@ fetch('/user/123/freefish?age=20&country=china').then(response => {
   assert.equal(response.data.country, 'china')
 })
 ```
+## beforeMock
+`request Mockajax.beforeMock(function(request) { return request })`,set before mock action. you don't need to call the fuction, if you call it, you should return request object.
+## afterMock
+`request Mockajax.afterMock(function(response) { return response })`,set after mock action. you don't need to call the fuction, if you call it, you should return response object.
 ## mock
 `void MockAjax.mock(/* Array|Object */ options)`: the method is used to set mock rule, the argument options can be Object or Array.
 **options**:

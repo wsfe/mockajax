@@ -102,6 +102,10 @@ fetch('/user/123/freefish?age=20&country=china').then(response => {
   assert.equal(response.data.country, 'china')
 })
 ```
+## beforeMock
+`request Mockajax.beforeMock(function(request) { return request })`,设置mock前的动作，默认可以不设置，如果设置了需要返回request对象。
+## afterMock
+`request Mockajax.afterMock(function(response) { return response })`,设置mock后的动作，默认可以不设置，如果设置了需要返回response对象。
 ## mock
 `void MockAjax.mock(/* Array|Object */ options)`设置mock规则，`options`可以是数组也可以是对象。
 **options**:

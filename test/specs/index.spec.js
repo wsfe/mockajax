@@ -5,11 +5,20 @@ const axiosInstance = axios.create({
   baseURL: 'http://wangsu.co/api/v1'
 })
 
+axios.interceptors.response.use(function (response) {
+  return response.data
+})
+
 before(() => {
   MockAjax.openFetch();
 })
 
 MockAjax.setBasePath('/api/v1')
+MockAjax.afterMock(function (data) {
+  return {
+    data
+  }
+})
 
 MockAjax.mock({
   url: /help\/.*/,
@@ -145,9 +154,9 @@ describe('restful api', () => {
       xhr.open('GET', '/user/123/freefish?age=20&country=china', false)
       xhr.send(null)
       let response = xhr.response
-      assert.equal(response.name, 'freefish')
-      assert.equal(response.age, 20)
-      assert.equal(response.country, 'china')
+      assert.equal(response.data.name, 'freefish')
+      assert.equal(response.data.age, 20)
+      assert.equal(response.data.country, 'china')
       done()
     })
   })
@@ -157,10 +166,10 @@ describe('fetch', () => {
   describe('get method', () => {
     it('shoud return user id, name, age, country', (done) => {
       fetch('/user/123/freefish?age=20&country=china').then(response => {
-        assert.equal(response.data.id, 123)
-        assert.equal(response.data.name, 'freefish')
-        assert.equal(response.data.age, 20)
-        assert.equal(response.data.country, 'china')
+        assert.equal(response.data.data.id, 123)
+        assert.equal(response.data.data.name, 'freefish')
+        assert.equal(response.data.data.age, 20)
+        assert.equal(response.data.data.country, 'china')
         done()
       }).catch(error => {
         done(error)
@@ -168,9 +177,9 @@ describe('fetch', () => {
     })
     it('shoud return user name, age, country', (done) => {
       fetch('/user/freefish?age=20&country=china').then(response => {
-        assert.equal(response.data.name, 'freefish')
-        assert.equal(response.data.age, 20)
-        assert.equal(response.data.country, 'china')
+        assert.equal(response.data.data.name, 'freefish')
+        assert.equal(response.data.data.age, 20)
+        assert.equal(response.data.data.country, 'china')
         done()
       }).catch(error => {
         done(error)
@@ -178,7 +187,7 @@ describe('fetch', () => {
     })
     it('regex api', (done) => {
       fetch('/help/phone?phone=0510-5555 5555').then(response => {
-        assert.equal(response.data.phone, '0510-5555 5555')
+        assert.equal(response.data.data.phone, '0510-5555 5555')
         done()
       }).catch(error => {
         done(error)

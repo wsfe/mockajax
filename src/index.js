@@ -6,6 +6,14 @@ let basePathRegExp = null
 const PLACEHOLDER_REG = /:[^\/]+/g // 匹配restfull api中冒号开头的占位符
 const QUERY_REG = /\w+=[^&]+/g //
 
+function beforeMock (request) {
+  return request
+}
+
+function afterMock (response) {
+  return response
+}
+
 /**
  * 将restful路由生成可与对应路径匹配的正则表达式
  * @param {*} path 
@@ -64,7 +72,7 @@ function mock(request, rule , a) {
       request.body = typeof request.body === 'string' ? getQuery(request.body) : request.body
     }
   }
-  return rule.response(request)
+  return afterMock(rule.response(beforeMock(request)))
 }
 
 /**
@@ -148,6 +156,12 @@ xhook.before((request, cb) => {
 export default {
   setBasePath(basePath) {
     basePathRegExp = new RegExp(basePath)
+  },
+  beforeMock (cb) {
+    beforeMock = cb
+  },
+  afterMock (cb) {
+    afterMock = cb
   },
   openFetch() {
     fetchHook(request => {
